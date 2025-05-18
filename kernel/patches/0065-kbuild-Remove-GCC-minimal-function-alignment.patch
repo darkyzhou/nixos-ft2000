@@ -1,7 +1,7 @@
 From f31111e5ef07cab9e3d3f06d6974eeda25265f19 Mon Sep 17 00:00:00 2001
 From: Alexandre Frade <kernel@xanmod.org>
 Date: Sat, 31 Aug 2024 16:57:41 +0000
-Subject: [PATCH 65/81] kbuild: Remove GCC minimal function alignment
+Subject: [PATCH 65/73] kbuild: Remove GCC minimal function alignment
 
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
 ---
@@ -81,5 +81,5 @@ index 981cc3d7e..1bdb4d019 100644
  #else
  #define __cold
 -- 
-2.48.1
+2.49.0
 

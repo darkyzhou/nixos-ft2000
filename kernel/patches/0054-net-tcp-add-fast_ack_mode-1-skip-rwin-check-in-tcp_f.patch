@@ -1,7 +1,7 @@
 From 168cb96010914bff55fdfc1ffdf8ea5b7c9b821d Mon Sep 17 00:00:00 2001
 From: Neal Cardwell <ncardwell@google.com>
 Date: Sat, 16 Nov 2019 13:16:25 -0500
-Subject: [PATCH 54/81] net-tcp: add fast_ack_mode=1: skip rwin check in
+Subject: [PATCH 54/73] net-tcp: add fast_ack_mode=1: skip rwin check in
  tcp_fast_ack_mode__tcp_ack_snd_check()
 
 Add logic for an optional TCP connection behavior, enabled with
@@ -80,5 +80,5 @@ index eee24aaa1..7630fc262 100644
  	    tcp_in_quickack_mode(sk) ||
  	    /* Protocol state mandates a one-time immediate ACK */
 -- 
-2.48.1
+2.49.0
 

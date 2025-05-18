@@ -1,7 +1,7 @@
 From 6ef4e6005e9487dca21ca687ee0ec20b4b286258 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Fri, 29 Mar 2024 16:46:54 +0800
-Subject: [PATCH 12/81] PHYTIUM: net/phytmac: Fixed the issue of pxe startup
+Subject: [PATCH 12/73] PHYTIUM: net/phytmac: Fixed the issue of pxe startup
  failure.
 
 When network driver supports broadcast mode, no_broadcast bit of the
@@ -35,5 +35,5 @@ index 2d9f67c82..79df9a7f9 100644
  	config |= PHYTMAC_BIT(PAUSE_EN);
  	/* Rx Fcs remove */
 -- 
-2.48.1
+2.49.0
 

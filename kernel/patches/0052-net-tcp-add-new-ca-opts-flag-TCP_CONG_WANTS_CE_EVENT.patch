@@ -1,7 +1,7 @@
 From f54cd5d928c89f6599ba6e3febaf0c6b6a432b32 Mon Sep 17 00:00:00 2001
 From: Yousuk Seung <ysseung@google.com>
 Date: Wed, 23 May 2018 17:55:54 -0700
-Subject: [PATCH 52/81] net-tcp: add new ca opts flag TCP_CONG_WANTS_CE_EVENTS
+Subject: [PATCH 52/73] net-tcp: add new ca opts flag TCP_CONG_WANTS_CE_EVENTS
 
 Add a a new ca opts flag TCP_CONG_WANTS_CE_EVENTS that allows a
 congestion control module to receive CE events.
@@ -76,5 +76,5 @@ index 5c781abd6..eee24aaa1 100644
  		tp->ecn_flags |= TCP_ECN_SEEN;
  		break;
 -- 
-2.48.1
+2.49.0
 

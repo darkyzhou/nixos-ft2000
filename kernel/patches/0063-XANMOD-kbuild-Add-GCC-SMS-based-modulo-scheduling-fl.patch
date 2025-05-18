@@ -1,7 +1,7 @@
 From c8bf78afee0ab057fd07c51de6c923e23bef08b2 Mon Sep 17 00:00:00 2001
 From: Alexandre Frade <kernel@xanmod.org>
 Date: Mon, 16 Sep 2024 00:55:35 +0000
-Subject: [PATCH 63/81] XANMOD: kbuild: Add GCC SMS-based modulo scheduling
+Subject: [PATCH 63/73] XANMOD: kbuild: Add GCC SMS-based modulo scheduling
  flags
 
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
@@ -25,5 +25,5 @@ index 6c3233a21..31398977d 100644
  else ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
  KBUILD_CFLAGS += -Os
 -- 
-2.48.1
+2.49.0
 

@@ -1,7 +1,7 @@
 From 2c977babb99933d136cc13094dcaf8aa2d8afdf1 Mon Sep 17 00:00:00 2001
 From: Alexandre Frade <kernel@xanmod.org>
 Date: Thu, 11 May 2023 19:41:41 +0000
-Subject: [PATCH 66/81] XANMOD: fair: Set scheduler tunable latencies to
+Subject: [PATCH 66/73] XANMOD: fair: Set scheduler tunable latencies to
  unscaled
 
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
@@ -23,5 +23,5 @@ index 3d9b68a34..51aabdf29 100644
  /*
   * Minimal preemption granularity for CPU-bound tasks:
 -- 
-2.48.1
+2.49.0
 

@@ -1,7 +1,7 @@
 From 9405d29e369ee263c35268d8ff519e02368b3dbd Mon Sep 17 00:00:00 2001
 From: Alexandre Frade <kernel@xanmod.org>
 Date: Mon, 15 Jul 2024 04:50:34 +0000
-Subject: [PATCH 71/81] XANMOD: blk-wbt: Set wbt_default_latency_nsec() to
+Subject: [PATCH 71/73] XANMOD: blk-wbt: Set wbt_default_latency_nsec() to
  2msec
 
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
@@ -31,5 +31,5 @@ index 6dfc659d2..4cf65ad7c 100644
  
  static int wbt_data_dir(const struct request *rq)
 -- 
-2.48.1
+2.49.0
 

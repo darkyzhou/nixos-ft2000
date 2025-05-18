@@ -1,7 +1,7 @@
 From 06a38498f18963058b1bcd03f8947012d466ecfe Mon Sep 17 00:00:00 2001
 From: Alexandre Frade <kernel@xanmod.org>
 Date: Mon, 16 Sep 2024 15:36:01 +0000
-Subject: [PATCH 70/81] XANMOD: block: Set rq_affinity to force complete I/O
+Subject: [PATCH 70/73] XANMOD: block: Set rq_affinity to force complete I/O
  requests on same CPU
 
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
@@ -24,5 +24,5 @@ index 0fec27d6b..ab6760aef 100644
  void blk_queue_flag_set(unsigned int flag, struct request_queue *q);
  void blk_queue_flag_clear(unsigned int flag, struct request_queue *q);
 -- 
-2.48.1
+2.49.0
 

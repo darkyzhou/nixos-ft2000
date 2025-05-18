@@ -1,7 +1,7 @@
 From d7e9bd0e112794ae47abac51b3e8c1d092bad814 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Mon, 29 Apr 2024 18:23:45 +0800
-Subject: [PATCH 24/81] PHYTIUM: net/phytmac: Bugfix MAC address change when
+Subject: [PATCH 24/73] PHYTIUM: net/phytmac: Bugfix MAC address change when
  rmmod and insmod module
 
 The eth_hw_addr_random function cause systemd-udevd to generate
@@ -45,5 +45,5 @@ index d932d011b..732358ea4 100644
  	if (ndev->hw_features & NETIF_F_NTUPLE) {
  		INIT_LIST_HEAD(&pdata->rx_fs_list.list);
 -- 
-2.48.1
+2.49.0
 

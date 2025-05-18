@@ -1,7 +1,7 @@
 From 47e1eb998215698398f6e4d40cbec4b90d170d14 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Mon, 29 Apr 2024 10:47:47 +0800
-Subject: [PATCH 23/81] PHYTIUM: net/phytmac: Bugfix about dma conflict problem
+Subject: [PATCH 23/73] PHYTIUM: net/phytmac: Bugfix about dma conflict problem
 
 When setting RX_USED bit of the last descriptor for rx ring to 1,
 which will lead to the soft think it' valid and cause dma conflict.
@@ -258,5 +258,5 @@ index bcfc8ad68..25f1ba6c1 100644
  	/* ptp */
  	.init_ts_hw = phytmac_ptp_init_hw,
 -- 
-2.48.1
+2.49.0
 

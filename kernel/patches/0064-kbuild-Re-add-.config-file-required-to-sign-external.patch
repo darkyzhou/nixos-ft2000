@@ -1,7 +1,7 @@
 From ff5f0e92c8d3256d1b6e320c9e5978d7183349b2 Mon Sep 17 00:00:00 2001
 From: Alexandre Frade <kernel@xanmod.org>
 Date: Thu, 28 Nov 2024 22:55:27 +0000
-Subject: [PATCH 64/81] kbuild: Re-add .config file required to sign external
+Subject: [PATCH 64/73] kbuild: Re-add .config file required to sign external
  modules
 
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
@@ -24,5 +24,5 @@ index b96538787..878a4da24 100755
  #
  # This caters to host programs that participate in Kbuild. objtool and
 -- 
-2.48.1
+2.49.0
 

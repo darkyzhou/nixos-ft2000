@@ -1,7 +1,7 @@
 From bddd33c4c9e0455302bd49e4a6e10685a060c75d Mon Sep 17 00:00:00 2001
 From: Neal Cardwell <ncardwell@google.com>
 Date: Thu, 12 Oct 2017 23:44:27 -0400
-Subject: [PATCH 47/81] net-tcp_bbr: v2: count packets lost over TCP rate
+Subject: [PATCH 47/73] net-tcp_bbr: v2: count packets lost over TCP rate
  sampling interval
 
 For understanding the relationship between inflight and packet loss
@@ -73,5 +73,5 @@ index 1424911b1..8737f2134 100644
  	rs->delivered_ce = tp->delivered_ce - rs->prior_delivered_ce;
  	/* delivered_ce occupies less than 32 bits in the skb control block */
 -- 
-2.48.1
+2.49.0
 

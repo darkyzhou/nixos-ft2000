@@ -1,7 +1,7 @@
 From 111012dbf805859f7b22c486b5ae8ce7fcc83dd9 Mon Sep 17 00:00:00 2001
 From: zuoqian <zuoqian2032@phytium.com.cn>
 Date: Wed, 26 Feb 2025 03:50:13 +0000
-Subject: [PATCH 28/81] PHYTIUM: net: phytmac: Manage WOL on MAC if PHY
+Subject: [PATCH 28/73] PHYTIUM: net: phytmac: Manage WOL on MAC if PHY
  supports WOL
 
 Signed-off-by: zuoqian <zuoqian2032@phytium.com.cn>
@@ -27,5 +27,5 @@ index 306a9934d..8bba0af00 100644
  
  	pdata->wol = 0;
 -- 
-2.48.1
+2.49.0
 

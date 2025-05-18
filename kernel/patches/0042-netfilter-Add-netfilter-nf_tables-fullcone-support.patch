@@ -1,7 +1,7 @@
 From 6594f1b7e341f735a3823b366704632a6058ccbc Mon Sep 17 00:00:00 2001
 From: Alexandre Frade <kernel@xanmod.org>
 Date: Mon, 27 Feb 2023 01:38:18 +0000
-Subject: [PATCH 42/81] netfilter: Add netfilter nf_tables fullcone support
+Subject: [PATCH 42/73] netfilter: Add netfilter nf_tables fullcone support
 
 Signed-off-by: Syrone Wong <wong.syrone@gmail.com>
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
@@ -2304,5 +2304,5 @@ index 000000000..d845e5499
 +MODULE_ALIAS_NFT_EXPR("fullcone");
 +MODULE_DESCRIPTION("Netfilter nftables fullcone expression support of RFC3489 full cone NAT");
 -- 
-2.48.1
+2.49.0
 

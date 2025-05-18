@@ -1,7 +1,7 @@
 From 595da63ecebaf6a77be480f42bc3a4c6113ff22e Mon Sep 17 00:00:00 2001
 From: Neal Cardwell <ncardwell@google.com>
 Date: Mon, 21 Sep 2020 14:46:26 -0400
-Subject: [PATCH 57/81] net-tcp_bbr: v2: introduce is_acking_tlp_retrans_seq
+Subject: [PATCH 57/73] net-tcp_bbr: v2: introduce is_acking_tlp_retrans_seq
  into rate_sample
 
 Introduce is_acking_tlp_retrans_seq into rate_sample. This bool will
@@ -76,5 +76,5 @@ index 3f8015171..7e8324f54 100644
  
  old_ack:
 -- 
-2.48.1
+2.49.0
 

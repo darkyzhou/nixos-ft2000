@@ -1,7 +1,7 @@
 From 3c5ffd846dc6a2e730023cede9bf3070b915c718 Mon Sep 17 00:00:00 2001
 From: Chen Baozi <chenbaozi@phytium.com.cn>
 Date: Fri, 14 Jul 2023 08:33:58 +0800
-Subject: [PATCH 01/81] BACKPORT: PHYTIUM: arm64: phytium: Add support for
+Subject: [PATCH 01/73] BACKPORT: PHYTIUM: arm64: phytium: Add support for
  Phytium SoC family
 
 This patch adds supoort for the Phytium SoC family.
@@ -36,5 +36,5 @@ index 02f9248f7..a5aa73631 100644
  	bool "Qualcomm Platforms"
  	select GPIOLIB
 -- 
-2.48.1
+2.49.0
 

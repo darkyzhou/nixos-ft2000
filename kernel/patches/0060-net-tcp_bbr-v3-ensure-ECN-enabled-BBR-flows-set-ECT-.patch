@@ -1,7 +1,7 @@
 From de21b366371bf3df0f0f68536ed69927de5e3241 Mon Sep 17 00:00:00 2001
 From: Adithya Abraham Philip <abrahamphilip@google.com>
 Date: Fri, 11 Jun 2021 21:56:10 +0000
-Subject: [PATCH 60/81] net-tcp_bbr: v3: ensure ECN-enabled BBR flows set ECT
+Subject: [PATCH 60/73] net-tcp_bbr: v3: ensure ECN-enabled BBR flows set ECT
  on retransmits
 
 Adds a new flag TCP_ECN_ECT_PERMANENT that is used by CCAs to
@@ -64,5 +64,5 @@ index ed3f0935f..d4c45ca6f 100644
  			INET_ECN_dontxmit(sk);
  		}
 -- 
-2.48.1
+2.49.0
 

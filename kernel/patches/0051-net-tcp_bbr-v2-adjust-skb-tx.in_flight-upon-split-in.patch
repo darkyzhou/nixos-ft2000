@@ -1,7 +1,7 @@
 From b6913dcd5565cc6d8a3b32c1fd9164a0ab8c1019 Mon Sep 17 00:00:00 2001
 From: Neal Cardwell <ncardwell@google.com>
 Date: Wed, 1 May 2019 20:16:25 -0400
-Subject: [PATCH 51/81] net-tcp_bbr: v2: adjust skb tx.in_flight upon split in
+Subject: [PATCH 51/73] net-tcp_bbr: v2: adjust skb tx.in_flight upon split in
  tcp_fragment()
 
 When we fragment an skb that has already been sent, we need to update
@@ -100,5 +100,5 @@ index 24e3d685a..4576e356d 100644
  
  	/* Link BUFF into the send queue. */
 -- 
-2.48.1
+2.49.0
 

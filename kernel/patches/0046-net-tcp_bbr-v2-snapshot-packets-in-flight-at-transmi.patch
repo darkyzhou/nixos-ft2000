@@ -1,7 +1,7 @@
 From c439941e39d17a40ff425ed4821ea415abf37878 Mon Sep 17 00:00:00 2001
 From: Neal Cardwell <ncardwell@google.com>
 Date: Sat, 5 Aug 2017 11:49:50 -0400
-Subject: [PATCH 46/81] net-tcp_bbr: v2: snapshot packets in flight at transmit
+Subject: [PATCH 46/73] net-tcp_bbr: v2: snapshot packets in flight at transmit
  time and pass in rate_sample
 
 CC algorithms may want to snapshot the number of packets in flight at
@@ -114,5 +114,5 @@ index 763362159..1424911b1 100644
  
  		/* Record send time of most recently ACKed packet: */
 -- 
-2.48.1
+2.49.0
 

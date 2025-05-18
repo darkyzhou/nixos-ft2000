@@ -1,7 +1,7 @@
 From ff08f7c377986d41de046489b3cc99e68c75c2b3 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Thu, 27 Jun 2024 10:15:06 +0800
-Subject: [PATCH 27/81] PHYTIUM: net/phytmac: Support WOL interaction with BIOS
+Subject: [PATCH 27/73] PHYTIUM: net/phytmac: Support WOL interaction with BIOS
 
 It should notify the BIOS to enable or disable the WOL function.
 This patch adds support for it.
@@ -110,5 +110,5 @@ index 43c15b8ba..fd29c647e 100644
  {
  	int ret = 0;
 -- 
-2.48.1
+2.49.0
 

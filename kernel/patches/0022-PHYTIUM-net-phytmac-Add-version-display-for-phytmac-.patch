@@ -1,7 +1,7 @@
 From 3dc33b6a4c09a0051fdcf4ccb2ca1065fb1c8656 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Fri, 26 Apr 2024 15:11:35 +0800
-Subject: [PATCH 22/81] PHYTIUM: net/phytmac: Add version display for phytmac
+Subject: [PATCH 22/73] PHYTIUM: net/phytmac: Add version display for phytmac
  driver
 
 Add support for Using the ethtool -i interface or modinfo
@@ -106,5 +106,5 @@ index 305ff5866..9390056fd 100644
  MODULE_ALIAS("platform:phytmac");
 +MODULE_VERSION(PHYTMAC_DRIVER_VERSION);
 -- 
-2.48.1
+2.49.0
 

@@ -1,7 +1,7 @@
 From 9ac16ed5e40e902bb57e64d8ac31d017f9a7b704 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Fri, 26 Apr 2024 15:04:49 +0800
-Subject: [PATCH 19/81] PHYTIUM: net/phytmac: Roll back rx_clean version
+Subject: [PATCH 19/73] PHYTIUM: net/phytmac: Roll back rx_clean version
 
 Roll back rx_clean version to not use batching.
 
@@ -149,5 +149,5 @@ index b96547e54..b823a07a7 100644
  	.rx_single_buffer = phytmac_rx_single_buffer,
  	.rx_pkt_start = phytmac_rx_sof,
 -- 
-2.48.1
+2.49.0
 

@@ -1,7 +1,7 @@
 From 248496cf45a00797331063ac7a64a2bf3604706c Mon Sep 17 00:00:00 2001
 From: Wentao Guan <guanwentao@uniontech.com>
 Date: Wed, 8 May 2024 18:11:37 +0800
-Subject: [PATCH 30/81] DEEPIN: net: stmmac: Add phytium old dwmac
+Subject: [PATCH 30/73] DEEPIN: net: stmmac: Add phytium old dwmac
  acpi_device_id
 
 As Phytium ACPI Description Specification document v1.2 p13
@@ -29,5 +29,5 @@ index 6e8e44730..078e3ee52 100644
  	{ }
  };
 -- 
-2.48.1
+2.49.0
 

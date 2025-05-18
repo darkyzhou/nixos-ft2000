@@ -1,7 +1,7 @@
 From 50cff1f8cfd6c3f63cbbd453d9ed38fe86af9482 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Thu, 27 Jun 2024 10:09:53 +0800
-Subject: [PATCH 26/81] PHYTIUM: net/phytmac: Adapt interface type 2500BASE-x
+Subject: [PATCH 26/73] PHYTIUM: net/phytmac: Adapt interface type 2500BASE-x
 
 Add 2500BASE-x interface type support for phytmac driver.
 
@@ -106,5 +106,5 @@ index 20595aca1..72a6eeaec 100644
  
  static unsigned int phytmac_pcs_get_link(struct phytmac *pdata,
 -- 
-2.48.1
+2.49.0
 

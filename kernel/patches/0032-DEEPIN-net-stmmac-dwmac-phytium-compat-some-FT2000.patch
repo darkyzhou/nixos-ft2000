@@ -1,7 +1,7 @@
 From a870c8edd05687f25b53792a80a4b81ef00dccf8 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?=E5=BF=98=E6=80=80?= <guanwentao@uniontech.com>
 Date: Tue, 9 Jul 2024 17:17:48 +0800
-Subject: [PATCH 32/81] DEEPIN: net: stmmac: dwmac-phytium: compat some FT2000
+Subject: [PATCH 32/73] DEEPIN: net: stmmac: dwmac-phytium: compat some FT2000
 
 Compat with some quirk platform FT2000/4 as id "FTGM0001",
 use rgmii-rxid instead of rgmii (wrong ACPI DSDT),
@@ -70,5 +70,5 @@ index 078e3ee52..ba86b6bb0 100644
  	plat->axi->axi_xit_frm = false;
  	plat->axi->axi_wr_osr_lmt = 7;
 -- 
-2.48.1
+2.49.0
 

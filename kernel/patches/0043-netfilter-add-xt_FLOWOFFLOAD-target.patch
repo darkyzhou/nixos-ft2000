@@ -1,7 +1,7 @@
 From 4a0ad9a9d6c8a80a63aaeac2de8ad1a588e98aa9 Mon Sep 17 00:00:00 2001
 From: Felix Fietkau <nbd@nbd.name>
 Date: Tue, 20 Feb 2018 15:56:02 +0100
-Subject: [PATCH 43/81] netfilter: add xt_FLOWOFFLOAD target
+Subject: [PATCH 43/73] netfilter: add xt_FLOWOFFLOAD target
 
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
@@ -822,5 +822,5 @@ index 000000000..5a8a4ffde
 +module_init(xt_flowoffload_tg_init);
 +module_exit(xt_flowoffload_tg_exit);
 -- 
-2.48.1
+2.49.0
 

@@ -1,7 +1,7 @@
 From 568818b272c1a44613ee8cf88a752f60b6af7cb6 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Fri, 26 Apr 2024 14:55:39 +0800
-Subject: [PATCH 16/81] PHYTIUM: net/phytmac: Get device type error fixed
+Subject: [PATCH 16/73] PHYTIUM: net/phytmac: Get device type error fixed
 
 We should return -EOPNOTSUPP to the unsupported device types,
 otherwise the wireless attribute will be added by default.
@@ -31,5 +31,5 @@ index ca1a03fa3..058f9647b 100644
  	if (!netif_running(dev))
  		return -EINVAL;
 -- 
-2.48.1
+2.49.0
 

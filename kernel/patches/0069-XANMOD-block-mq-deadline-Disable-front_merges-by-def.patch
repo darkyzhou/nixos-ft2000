@@ -1,7 +1,7 @@
 From 736d0dfe941b77d5f1db2ab31429ee9906e2a2c7 Mon Sep 17 00:00:00 2001
 From: Alexandre Frade <kernel@xanmod.org>
 Date: Thu, 6 Jan 2022 16:59:01 +0000
-Subject: [PATCH 69/81] XANMOD: block/mq-deadline: Disable front_merges by
+Subject: [PATCH 69/73] XANMOD: block/mq-deadline: Disable front_merges by
  default
 
 Signed-off-by: Alexandre Frade <kernel@xanmod.org>
@@ -23,5 +23,5 @@ index 233c9712e..0f8218a26 100644
  	dd->fifo_batch = fifo_batch;
  	dd->prio_aging_expire = prio_aging_expire;
 -- 
-2.48.1
+2.49.0
 

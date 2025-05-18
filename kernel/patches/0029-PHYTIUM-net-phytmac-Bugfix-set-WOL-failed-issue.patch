@@ -1,7 +1,7 @@
 From 0c2b92540639e68a8cf4eb12ba4ecc6fa430ca04 Mon Sep 17 00:00:00 2001
 From: zuoqian <zuoqian2032@phytium.com.cn>
 Date: Thu, 27 Feb 2025 05:44:58 +0000
-Subject: [PATCH 29/81] PHYTIUM: net/phytmac: Bugfix set WOL failed issue
+Subject: [PATCH 29/73] PHYTIUM: net/phytmac: Bugfix set WOL failed issue
 
 Before configuring WOL, we need to obtain the packet types
 that WOL supports.
@@ -50,5 +50,5 @@ index 8bba0af00..e1698fa10 100644
  }
  
 -- 
-2.48.1
+2.49.0
 

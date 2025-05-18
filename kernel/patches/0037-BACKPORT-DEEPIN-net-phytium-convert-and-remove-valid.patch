@@ -1,7 +1,7 @@
 From 63711c03931f1b8dbcd3fe5a4b6cae10a50dc44b Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?=E5=BF=98=E6=80=80?= <otgwt@outlook.com>
 Date: Wed, 3 Jul 2024 03:13:45 +0000
-Subject: [PATCH 37/81] BACKPORT: DEEPIN: net: phytium: convert and remove
+Subject: [PATCH 37/73] BACKPORT: DEEPIN: net: phytium: convert and remove
  validate() references
 
 Populate the supported interfaces bitmap and MAC capabilities mask for
@@ -117,5 +117,5 @@ index 964ef68e0..73502cb34 100644
  					pdata->phy_interface, &phytmac_phylink_ops);
  	if (IS_ERR(pdata->phylink)) {
 -- 
-2.48.1
+2.49.0
 

@@ -1,7 +1,7 @@
 From c7d9920cf59c53699573ea6d2a4a6288df3152ba Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Fri, 26 Apr 2024 15:10:12 +0800
-Subject: [PATCH 21/81] PHYTIUM: net/phytmac: Round down rx_buf_len to 64 bytes
+Subject: [PATCH 21/73] PHYTIUM: net/phytmac: Round down rx_buf_len to 64 bytes
 
 DMA config register needs the rx_buf_len to be aligned to
 64-bytes.
@@ -34,5 +34,5 @@ index a2b3ed84e..72b5a1587 100644
  
  inline struct phytmac_dma_desc *phytmac_get_rx_desc(struct phytmac_queue *queue,
 -- 
-2.48.1
+2.49.0
 

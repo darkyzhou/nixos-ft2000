@@ -1,7 +1,7 @@
 From 652f5ab2767ce90a02d3008d3edf2e329cc4c62e Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Fri, 26 Apr 2024 14:33:32 +0800
-Subject: [PATCH 14/81] PHYTIUM: net/phytmac:Added high address check
+Subject: [PATCH 14/73] PHYTIUM: net/phytmac:Added high address check
 
 A maximum of three DMA ring addresses can be allocated,
 and check whether the high addresses in multiple queues
@@ -208,5 +208,5 @@ index c172103a9..07f847694 100644
  			       const struct phylink_link_state *state)
  {
 -- 
-2.48.1
+2.49.0
 
