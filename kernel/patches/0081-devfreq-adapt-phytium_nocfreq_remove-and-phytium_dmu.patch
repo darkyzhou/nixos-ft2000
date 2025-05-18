@@ -1,0 +1,69 @@
+From 76c61b04f7c352a7f01e320fa72787d67474bbb0 Mon Sep 17 00:00:00 2001
+From: darkyzhou <darkyoooooo@gmail.com>
+Date: Sun, 18 May 2025 12:07:55 +0800
+Subject: [PATCH 81/81] devfreq: adapt phytium_nocfreq_remove and
+ phytium_dmufreq_remove to new signature of platform_driver
+
+Signed-off-by: darkyzhou <me@zqy.io>
+---
+ drivers/devfreq/phytium_dmu.c | 6 ++----
+ drivers/devfreq/phytium_noc.c | 6 ++----
+ 2 files changed, 4 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/devfreq/phytium_dmu.c b/drivers/devfreq/phytium_dmu.c
+index 1fc23b486..6a98a3d99 100644
+--- a/drivers/devfreq/phytium_dmu.c
++++ b/drivers/devfreq/phytium_dmu.c
+@@ -329,20 +329,18 @@ static int phytium_dmufreq_probe(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
+-static int phytium_dmufreq_remove(struct platform_device *pdev)
++static void phytium_dmufreq_remove(struct platform_device *pdev)
+ {
+ 	struct phytium_dmufreq *priv = platform_get_drvdata(pdev);
+ 	struct device *dev = &pdev->dev;
+ 
+ 	if (!priv->devfreq)
+-		return 0;
++		return;
+ 	flush_work(&priv->work);
+ 	del_timer_sync(&priv->sampling);
+ 	dev_pm_opp_remove_all_dynamic(dev);
+ 
+ 	kfree(priv);
+-
+-	return 0;
+ }
+ 
+ #ifdef CONFIG_ACPI
+diff --git a/drivers/devfreq/phytium_noc.c b/drivers/devfreq/phytium_noc.c
+index 9658d9506..0e92ae4a9 100644
+--- a/drivers/devfreq/phytium_noc.c
++++ b/drivers/devfreq/phytium_noc.c
+@@ -383,7 +383,7 @@ static int phytium_nocfreq_probe(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
+-static int phytium_nocfreq_remove(struct platform_device *pdev)
++static void phytium_nocfreq_remove(struct platform_device *pdev)
+ {
+ 	struct phytium_nocfreq *priv = platform_get_drvdata(pdev);
+ 	unsigned long initial_freq = priv->profile.initial_freq;
+@@ -407,12 +407,10 @@ static int phytium_nocfreq_remove(struct platform_device *pdev)
+ 	iounmap(priv->reg_noc);
+ 
+ 	if (!priv->devfreq)
+-		return 0;
++		return;
+ 
+ 	dev_pm_opp_remove_all_dynamic(dev);
+ 	kfree(priv);
+-
+-	return 0;
+ }
+ 
+ static const struct acpi_device_id phytium_noc_acpi_ids[] = {
+-- 
+2.48.1
+

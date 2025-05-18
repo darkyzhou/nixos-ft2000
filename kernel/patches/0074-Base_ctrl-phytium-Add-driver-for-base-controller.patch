@@ -1,0 +1,381 @@
+From 8d02dfb67ea6cf0ce55ac1b9e90f32e6fe353dcd Mon Sep 17 00:00:00 2001
+From: Li Yuze <liyuze@phytium.com.cn>
+Date: Fri, 3 Jan 2025 14:59:08 +0800
+Subject: [PATCH 74/81] Base_ctrl: phytium: Add driver for base controller
+
+This driver provides interface functions for reading and writing
+base controller address.
+
+Mainline: NA
+Signed-off-by: Li Yuze <liyuze@phytium.com.cn>
+Signed-off-by: Wang Yinfeng <wangyinfeng@phytium.com.cn>
+Change-Id: I963ccac25c7e3500f54ddab7f27e8f6ebd52c55c
+Signed-off-by: darkyzhou <me@zqy.io>
+---
+ MAINTAINERS                      |  65 ++++++++++
+ drivers/acpi/Kconfig             |   7 ++
+ drivers/acpi/Makefile            |   1 +
+ drivers/acpi/phytium_base_ctrl.c | 210 +++++++++++++++++++++++++++++++
+ drivers/acpi/phytium_base_ctrl.h |  27 ++++
+ 5 files changed, 310 insertions(+)
+ create mode 100644 drivers/acpi/phytium_base_ctrl.c
+ create mode 100644 drivers/acpi/phytium_base_ctrl.h
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 67c7c47ea..26307fba2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19218,6 +19218,71 @@ ARM/PHYTIUM SOC SUPPORT
+ M:	Wang Yinfeng <wangyinfeng@phytium.com.cn>
+ S:	Maintained
+ W:	https://www.phytium.com.cn
++F:	Documentation/devicetree/bindings/dma/phytium,ddma.yaml
++F:	Documentation/devicetree/bindings/dma/phytium,gdma.yaml
++F:	Documentation/devicetree/bindings/edac/phytium-pe220x-edac.txt
++F:	Documentation/devicetree/bindings/gpio/phytium,gpio.yaml
++F:	Documentation/devicetree/bindings/gpio/phytium,sgpio.yaml
++F:	Documentation/devicetree/bindings/gpu/phytium,dc.yaml
++F:	drivers/hwmon/tacho-phytium.c
++F:	Documentation/devicetree/bindings/hwlock/phytium,hwspinlock.yaml
++F:	Documentation/devicetree/bindings/hwmon/phytium,tacho.yaml
++F:	Documentation/devicetree/bindings/i2c/phytium,i2c.yaml
++F:	Documentation/devicetree/bindings/i3c/phytium,i3c-master.yaml
++F:	Documentation/devicetree/bindings/media/phytium,jpeg.yaml
++F:	Documentation/devicetree/bindings/iio/adc/phytium,adc.yaml
++F:	Documentation/devicetree/bindings/input/phytium,keypad.yaml
++F:	Documentation/devicetree/bindings/interrupt-controller/phytium,ixic.yaml
++F:	Documentation/devicetree/bindings/ipmi/phytium,bt-bmc.yaml
++F:	Documentation/devicetree/bindings/ipmi/phytium,kcs-bmc.yaml
++F:	Documentation/devicetree/bindings/leds/phytnet_led.yaml
++F:	Documentation/devicetree/bindings/mailbox/phytium,mbox.yaml
++F:	Documentation/devicetree/bindings/misc/phytium,snoop-ctrl.yaml
++F:	Documentation/devicetree/bindings/mmc/phytium,mci.yaml
++F:	Documentation/devicetree/bindings/mmc/phytium,sdci.yaml
++F:	Documentation/devicetree/bindings/mtd/phytium,nfc.yaml
++F:	Documentation/devicetree/bindings/net/can/phytium,can.yaml
++F:	Documentation/devicetree/bindings/net/phytmac.yaml
++F:	Documentation/devicetree/bindings/pci/phytium,pd2008-pcie-ep.yaml
++F:	Documentation/devicetree/bindings/pwm/phytium,pwm.yaml
++F:	Documentation/devicetree/bindings/rng/phytium,rng.yaml
++F:	Documentation/devicetree/bindings/sound/phytium,hda.yaml
++F:	Documentation/devicetree/bindings/sound/phytium,i2s.yaml
++F:	Documentation/devicetree/bindings/spi/phytium,qspi-nor.yaml
++F:	Documentation/devicetree/bindings/spi/phytium,spi.yaml
++F:	Documentation/devicetree/bindings/usb/phytium,usb2.yaml
++F:	Documentation/devicetree/bindings/w1/phytium,w1.yaml
++F:	arch/arm64/boot/dts/phytium/*
++F:	arch/arm64/include/asm/ras.h
++F:	arch/arm64/kernel/ras.c
++F:	drivers/acpi/phytium_base_ctrl.c
++F:	drivers/char/hw_random/phytium-rng.c
++F:	drivers/char/ipmi/bt_bmc_phytium.c
++F:	drivers/char/ipmi/kcs_bmc_phytium.c
++F:	drivers/dma/phytium/phytium*
++F:	drivers/edac/phytium_edac.c
++F:	drivers/gpio/gpio-phytium*
++F:	drivers/gpio/gpio-phytium-sgpio.c
++F:	drivers/gpu/drm/phytium/*
++F:	drivers/hwspinlock/phytium_hwspinlock.c
++F:	drivers/i2c/busses/i2c-phytium-*
++F:	drivers/i3c/master/i3c-master-acpi.c
++F:	drivers/i3c/master/i3c-master-acpi.h
++F:	drivers/i3c/master/i3c-master-phytium.c
++F:	drivers/iio/adc/phytium-adc.c
++F:	drivers/input/keyboard/phytium-keypad.c
++F:	drivers/input/serio/phytium-ps2.c
++F:	drivers/irqchip/irq-phytium-ixic.c
++F:	drivers/mailbox/phytium_mailbox.c
++F:	drivers/media/platform/phytium-jpeg/phytium_jpeg*
++F:	drivers/mfd/phytium_px210_i2s_lsd.c
++F:	drivers/mfd/phytium_px210_i2s_mmd.c
++F:	drivers/misc/phytium-snoop-ctrl.c
++F:	drivers/mmc/host/phytium-mci*
++F:	drivers/mmc/host/phytium-sdci.*
++F:	drivers/mtd/nand/raw/phytium_nand*
++F:	drivers/mtd/parsers/acpipart_core.c
++F:	drivers/net/can/phytium/*
+ F:	drivers/net/ethernet/Kconfig
+ F:	drivers/net/ethernet/Makefile
+ F:	drivers/net/ethernet/phytium/*
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index d81b55f50..2699eea53 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -46,6 +46,13 @@ if ACPI
+ config ACPI_LEGACY_TABLES_LOOKUP
+ 	bool
+ 
++config PHYTIUM_BASE_CTRL
++	bool "Phytium base ctrl driver"
++	default y
++	help
++	  This driver provides interface functions for reading and
++	  writing phytium base controller device address.
++
+ config ARCH_MIGHT_HAVE_ACPI_PDC
+ 	bool
+ 
+diff --git a/drivers/acpi/Makefile b/drivers/acpi/Makefile
+index 797070fc9..64d58af62 100644
+--- a/drivers/acpi/Makefile
++++ b/drivers/acpi/Makefile
+@@ -46,6 +46,7 @@ acpi-y				+= acpi_processor.o
+ acpi-y				+= processor_core.o
+ acpi-$(CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC) += processor_pdc.o
+ acpi-$(CONFIG_ACPI_EC)		+= ec.o
++acpi-$(CONFIG_PHYTIUM_BASE_CTRL)	+= phytium_base_ctrl.o
+ acpi-$(CONFIG_ACPI_DOCK)	+= dock.o
+ acpi-$(CONFIG_PCI)		+= pci_root.o pci_link.o pci_irq.o
+ obj-$(CONFIG_ACPI_MCFG)		+= pci_mcfg.o
+diff --git a/drivers/acpi/phytium_base_ctrl.c b/drivers/acpi/phytium_base_ctrl.c
+new file mode 100644
+index 000000000..5ebfd0794
+--- /dev/null
++++ b/drivers/acpi/phytium_base_ctrl.c
+@@ -0,0 +1,210 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * base_ctrl driver for Phytium.
++ *
++ * Copyright (C) 2021-2024, Phytium Technology Co., Ltd.
++ */
++
++#include <linux/module.h>
++#include <linux/init.h>
++#include <linux/slab.h>
++#include <linux/interrupt.h>
++#include <linux/irq.h>
++#include <linux/platform_device.h>
++#include <linux/err.h>
++#include <linux/spinlock.h>
++#include <linux/acpi.h>
++
++#include "phytium_base_ctrl.h"
++
++#define BASE_CTRL_DRIVER_VERSION "1.1.0"
++
++static struct phytium_base_ctrl *boot_base_ctrl;
++
++int phytium_base_ctrl_irq(void)
++{
++	if (!boot_base_ctrl)
++		return -ENODEV;
++
++	return boot_base_ctrl->irq;
++}
++EXPORT_SYMBOL(phytium_base_ctrl_irq);
++
++int base_ctrl_read_int_status(void)
++{
++	unsigned long flags;
++	u16 value;
++
++	if (!boot_base_ctrl)
++		return 0;
++
++	spin_lock_irqsave(&boot_base_ctrl->lock, flags);
++	value = readw(boot_base_ctrl->base + boot_base_ctrl->int_status_reg);
++	spin_unlock_irqrestore(&boot_base_ctrl->lock, flags);
++
++	return value;
++}
++EXPORT_SYMBOL(base_ctrl_read_int_status);
++
++void base_ctrl_write_int_clear(int val)
++{
++	unsigned long flags;
++
++	if (!boot_base_ctrl)
++		return;
++
++	spin_lock_irqsave(&boot_base_ctrl->lock, flags);
++	writew(val, boot_base_ctrl->base + boot_base_ctrl->int_clear_reg);
++	spin_unlock_irqrestore(&boot_base_ctrl->lock, flags);
++}
++EXPORT_SYMBOL(base_ctrl_write_int_clear);
++
++bool phytium_check_cpu(void)
++{
++#ifdef CONFIG_ARCH_PHYTIUM
++	if (read_cpuid_implementor() == ARM_CPU_IMP_PHYTIUM)
++		return true;
++#endif
++	return false;
++}
++EXPORT_SYMBOL(phytium_check_cpu);
++
++u8 base_ctrl_readb(unsigned long offset)
++{
++	unsigned long flags;
++	u8 value;
++
++	if (!boot_base_ctrl)
++		return 1;
++
++	spin_lock_irqsave(&boot_base_ctrl->lock, flags);
++	value = readb(boot_base_ctrl->base + offset);
++	spin_unlock_irqrestore(&boot_base_ctrl->lock, flags);
++	return value;
++}
++EXPORT_SYMBOL(base_ctrl_readb);
++
++u32 base_ctrl_readl(unsigned long offset)
++{
++	unsigned long flags;
++	u32 value;
++
++	if (!boot_base_ctrl)
++		return 1;
++
++	spin_lock_irqsave(&boot_base_ctrl->lock, flags);
++	value = readl(boot_base_ctrl->base + offset);
++	spin_unlock_irqrestore(&boot_base_ctrl->lock, flags);
++
++	return value;
++}
++EXPORT_SYMBOL(base_ctrl_readl);
++
++int base_ctrl_writeb(unsigned long offset, u8 value)
++{
++	unsigned long flags;
++
++	if (!boot_base_ctrl)
++		return 0;
++
++	spin_lock_irqsave(&boot_base_ctrl->lock, flags);
++	writeb(value, boot_base_ctrl->base + offset);
++	spin_unlock_irqrestore(&boot_base_ctrl->lock, flags);
++
++	return 0;
++}
++EXPORT_SYMBOL(base_ctrl_writeb);
++
++int base_ctrl_writel(unsigned long offset, u32 value)
++{
++	unsigned long flags;
++
++	if (!boot_base_ctrl)
++		return 0;
++
++	spin_lock_irqsave(&boot_base_ctrl->lock, flags);
++	writel(value, boot_base_ctrl->base + offset);
++	spin_unlock_irqrestore(&boot_base_ctrl->lock, flags);
++
++	return 0;
++}
++EXPORT_SYMBOL(base_ctrl_writel);
++
++static int phytium_base_ctrl_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct resource *res;
++	struct phytium_base_ctrl *base_ctrl;
++	int error = -1;
++
++	base_ctrl = devm_kzalloc(dev, sizeof(*base_ctrl), GFP_KERNEL);
++	if (!base_ctrl)
++		return -ENOMEM;
++
++	base_ctrl->dev = &pdev->dev;
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!res)
++		return -ENOENT;
++
++	base_ctrl->base = devm_ioremap_resource(&pdev->dev, res);
++	if (IS_ERR(base_ctrl->base)) {
++		dev_err(&pdev->dev, "region map failed\n");
++		return PTR_ERR(base_ctrl->base);
++	}
++
++	base_ctrl->irq = platform_get_irq(pdev, 0);
++	if (base_ctrl->irq < 0) {
++		dev_err(&pdev->dev, "no irq resource?\n");
++		return base_ctrl->irq;
++	}
++
++	error = device_property_read_u32(&pdev->dev, "int_state",
++			&base_ctrl->int_status_reg);
++	if (error)
++		base_ctrl->int_status_reg = base_ctrl_INT_STATE;
++
++	error = device_property_read_u32(&pdev->dev, "clr_int",
++				&base_ctrl->int_clear_reg);
++	if (error)
++		base_ctrl->int_clear_reg = base_ctrl_CLR_INT;
++
++	spin_lock_init(&base_ctrl->lock);
++	boot_base_ctrl = base_ctrl;
++	platform_set_drvdata(pdev, base_ctrl);
++
++	return 0;
++}
++
++static const struct acpi_device_id base_ctrl_acpi_match[] = {
++	{ "PHYT0007", 0 },
++	{ }
++};
++MODULE_DEVICE_TABLE(acpi, base_ctrl_acpi_match);
++
++static struct platform_driver phytium_base_ctrl_driver = {
++	.probe		= phytium_base_ctrl_probe,
++	.driver	= {
++		.name	= "phytium_base_ctrl",
++		.acpi_match_table = ACPI_PTR(base_ctrl_acpi_match),
++	},
++};
++
++module_platform_driver(phytium_base_ctrl_driver);
++
++static int __init phytium_base_ctrl_init(void)
++{
++	platform_driver_register(&phytium_base_ctrl_driver);
++	return 0;
++}
++
++static void __exit phytium_base_ctrl_exit(void)
++{
++	platform_driver_unregister(&phytium_base_ctrl_driver);
++}
++
++early_initcall(phytium_base_ctrl_init);
++MODULE_AUTHOR("Li Yuze <liyuze@phytium.com.cn>");
++MODULE_DESCRIPTION("Phytium base_ctrl driver");
++MODULE_LICENSE("GPL");
++MODULE_VERSION(BASE_CTRL_DRIVER_VERSION);
+diff --git a/drivers/acpi/phytium_base_ctrl.h b/drivers/acpi/phytium_base_ctrl.h
+new file mode 100644
+index 000000000..017f21e5a
+--- /dev/null
++++ b/drivers/acpi/phytium_base_ctrl.h
+@@ -0,0 +1,27 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * acpi/phytium_base_ctrl.h
++ *
++ * Copyright (C) 2021-2024, Phytium Technology Co., Ltd.
++ */
++
++#define	base_ctrl_INT_STATE	0x7FFFFC4
++#define	base_ctrl_CLR_INT	0x7FFFFC0
++
++struct phytium_base_ctrl {
++	struct device *dev;
++	void __iomem *base;
++	int irq;
++	spinlock_t lock;
++	u32 int_status_reg;
++	u32 int_clear_reg;
++};
++
++int phytium_base_ctrl_irq(void);
++u8 base_ctrl_readb(unsigned long offset);
++u32 base_ctrl_readl(unsigned long offset);
++bool phytium_check_cpu(void);
++int base_ctrl_writeb(unsigned long offset, u8 value);
++int base_ctrl_writel(unsigned long offset, u32 value);
++int base_ctrl_read_int_status(void);
++void base_ctrl_write_int_clear(int val);
+-- 
+2.48.1
+
