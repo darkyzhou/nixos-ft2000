@@ -1,7 +1,7 @@
-From fb77a6bdb21ca0659ae2b0d945cec20a6e2219bf Mon Sep 17 00:00:00 2001
+From 39c4082bab11054991c867dd78043ee849dbb968 Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Mon, 25 Mar 2024 17:38:27 +0800
-Subject: [PATCH 08/73] BACKPORT: PHYTIUM: net/stmmac: Add phytium DWMAC driver
+Subject: [PATCH 08/67] BACKPORT: PHYTIUM: net/stmmac: Add phytium DWMAC driver
  support v2
 
 Modify stmmmac driver to support phytium DWMAC controler.
@@ -20,10 +20,10 @@ Signed-off-by: Kexy Biscuit <kexybiscuit@aosc.io>
  2 files changed, 16 insertions(+), 22 deletions(-)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index ca3ba404c..99d965dde 100644
+index acd61855f5dd..eb49b5b0d9c8 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -19218,6 +19218,7 @@ ARM/PHYTIUM SOC SUPPORT
+@@ -20147,6 +20147,7 @@ ARM/PHYTIUM SOC SUPPORT
  M:	Wang Yinfeng <wangyinfeng@phytium.com.cn>
  S:	Maintained
  W:	https://www.phytium.com.cn
@@ -32,7 +32,7 @@ index ca3ba404c..99d965dde 100644
  QAT DRIVER
  M:	Giovanni Cabiddu <giovanni.cabiddu@intel.com>
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-phytium.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-phytium.c
-index a930cea62..d31b8e870 100644
+index a930cea6280b..d31b8e870f64 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-phytium.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-phytium.c
 @@ -37,8 +37,7 @@ static int phytium_get_mac_mode(struct fwnode_handle *fwnode)
@@ -140,5 +140,5 @@ index a930cea62..d31b8e870 100644
  		.name		= "phytium-dwmac",
  		.of_match_table	= of_match_ptr(phytium_dwmac_of_match),
 -- 
-2.49.0
+2.50.1
 

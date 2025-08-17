@@ -1,7 +1,7 @@
-From 19e6c329e30d16b56f1874c74d99672cf68c8520 Mon Sep 17 00:00:00 2001
+From 9660ba4b640ad4558df455d55ba916beb8fc2363 Mon Sep 17 00:00:00 2001
 From: Chen Baozi <chenbaozi@phytium.com.cn>
 Date: Fri, 14 Jul 2023 08:34:22 +0800
-Subject: [PATCH 03/73] BACKPORT: PHYTIUM: net: stmmac: Add Phytium GMAC glue
+Subject: [PATCH 03/67] BACKPORT: PHYTIUM: net: stmmac: Add Phytium GMAC glue
  layer
 
 This patch adds support for Phytium GMAC controller which derived from
@@ -25,10 +25,10 @@ Signed-off-by: Kexy Biscuit <kexybiscuit@aosc.io>
  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-phytium.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 00e94bec4..09a0484b7 100644
+index c0b444e5fd5a..1de1b8e95ea4 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -2894,6 +2894,12 @@ S:	Maintained
+@@ -3017,6 +3017,12 @@ S:	Maintained
  W:	http://www.digriz.org.uk/ts78xx/kernel
  F:	arch/arm/mach-orion5x/ts78xx-*
  
@@ -42,10 +42,10 @@ index 00e94bec4..09a0484b7 100644
  R:	cros-qcom-dts-watchers@chromium.org
  F:	arch/arm64/boot/dts/qcom/sc7180*
 diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 4cc85a36a..7130ed15f 100644
+index 67fa879b1e52..dd0bd696440e 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
 +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -121,6 +121,16 @@ config DWMAC_MESON
+@@ -122,6 +122,16 @@ config DWMAC_MESON
  	  the stmmac device driver. This driver is used for Meson6,
  	  Meson8, Meson8b and GXBB SoCs.
  
@@ -63,7 +63,7 @@ index 4cc85a36a..7130ed15f 100644
  	tristate "Qualcomm ETHQOS support"
  	default ARCH_QCOM
 diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index b26f0e79c..9225c4fd8 100644
+index b591d93f8503..ca28d74ee7f1 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
 +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
 @@ -19,6 +19,7 @@ obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
@@ -72,11 +72,11 @@ index b26f0e79c..9225c4fd8 100644
  obj-$(CONFIG_DWMAC_MESON)	+= dwmac-meson.o dwmac-meson8b.o
 +obj-$(CONFIG_DWMAC_PHYTIUM)	+= dwmac-phytium.o
  obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
+ obj-$(CONFIG_DWMAC_RENESAS_GBETH) += dwmac-renesas-gbeth.o
  obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
- obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-phytium.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-phytium.c
 new file mode 100644
-index 000000000..db1672dea
+index 000000000000..db1672deae82
 --- /dev/null
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-phytium.c
 @@ -0,0 +1,229 @@
@@ -310,5 +310,5 @@ index 000000000..db1672dea
 +MODULE_DESCRIPTION("Phytium DWMAC specific glue layer");
 +MODULE_LICENSE("GPL");
 -- 
-2.49.0
+2.50.1
 

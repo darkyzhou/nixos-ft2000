@@ -1,7 +1,7 @@
-From cd10a6fa29f4559e20e8f8e8254c71829b59995f Mon Sep 17 00:00:00 2001
+From bcdc5b6f00c25dee4b20ba48a7607c8c5397024c Mon Sep 17 00:00:00 2001
 From: Li Wencheng <liwencheng@phytium.com.cn>
 Date: Fri, 29 Mar 2024 16:45:04 +0800
-Subject: [PATCH 11/73] PHYTIUM: net/phytmac: Bugfixed the MDIO registration
+Subject: [PATCH 11/67] PHYTIUM: net/phytmac: Bugfixed the MDIO registration
  failures
 
 When MDIO registration fails, it will double free netdev,
@@ -18,7 +18,7 @@ Signed-off-by: Kexy Biscuit <kexybiscuit@aosc.io>
  1 file changed, 19 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/net/ethernet/phytium/phytmac_main.c b/drivers/net/ethernet/phytium/phytmac_main.c
-index b0977f5ca..da4e06736 100644
+index b0977f5cae75..da4e06736280 100644
 --- a/drivers/net/ethernet/phytium/phytmac_main.c
 +++ b/drivers/net/ethernet/phytium/phytmac_main.c
 @@ -1508,7 +1508,7 @@ int phytmac_mdio_register(struct phytmac *pdata)
@@ -111,5 +111,5 @@ index b0977f5ca..da4e06736 100644
  }
  EXPORT_SYMBOL_GPL(phytmac_drv_probe);
 -- 
-2.49.0
+2.50.1
 
