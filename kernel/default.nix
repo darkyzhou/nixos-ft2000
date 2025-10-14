@@ -6,16 +6,16 @@
   ...
 }:
 let
-  version = "6.16.1";
+  version = "6.16.12";
   read-linux-config = pkgs.callPackage ./read-linux-config.nix { };
 in
 (linuxManualConfig {
   inherit version;
-  modDirVersion = "${version}-raven3";
+  modDirVersion = "${version}-raven";
 
   src = fetchurl {
     url = "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${version}.tar.xz";
-    sha256 = "sha256-6kNJG8es4eQUs7LZV/jPlucEkVUSPwrM55isz42hrLo=";
+    sha256 = "sha256-fKTevFypEuu4p2lEpcEYr9XQnjHvQ8SUrbFCc9opom4=";
   };
 
   extraMakeFlags = [ "V=2" ];
